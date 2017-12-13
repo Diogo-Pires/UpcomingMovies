@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:UpcomingMovies"
+             x:Class="UpcomingMovies.Views.MoviesList"
+             Title="Upcoming Movies">
+
+    <StackLayout>
+        <TableView HeightRequest="150">
+            <TableRoot>
+                <TableSection Title="Search">
+                    <EntryCell x:Name="SearchText" Placeholder="Movie title" Height="20"></EntryCell>
+                    <ViewCell>
+                        <ContentView Padding="0,0">
+                            <ContentView.Content>
+                                <Button x:Name="BntSearch" Clicked="BntSearch_Clicked" Text="Search"/>
+                            </ContentView.Content>
+                        </ContentView>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <ListView x:Name="UpcomingMoviesList" ItemTapped="UpcomingMoviesList_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding Title}"></Label>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
